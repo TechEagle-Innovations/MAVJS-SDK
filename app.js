@@ -18,21 +18,29 @@ port.on('data', data => {
 
     const msg = mavlinkParser.parseBuffer(data)
     // mavlinkParser.decode(msg)
-    for (let i = 0; i < msg.length; i++) {
+    try{
+      for (let i = 0; i < msg.length; i++) {
 
-      if(msg[i].name == "ATTITUDE") {
-          console.log(msg[i].roll)
-        
+        switch(msg[i].name)
+        {
+          case "ATTITUDE":
+            console.log(msg[i].roll)
+            break;
+
+          case "STATUSTEXT":
+            console.log(msg[i].text)
+            break;
+
+          default:
+          break;
+        }
       }
-      
-      else if (msg[i].name == "STATUSTEXT") {
-        console.log(msg[i].text)
-      }
+
     }
-    
-    // if(msg.name == "ATTITUDE"){
-    //   console.log(msg)
-    // }
+    catch (error)
+    {
+      console.error('An error occurred:', error.message);
+    }
 
 });
 

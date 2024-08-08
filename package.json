@@ -1,0 +1,17 @@
+{
+  "name": "mav-node",
+  "version": "1.0.0",
+  "description": "mav node for UAV control",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "Rahul Yadav",
+  "license": "ISC",
+  "dependencies": {
+    "jspack": "^0.0.4",
+    "node-mavlink": "^2.0.7",
+    "serialport": "^12.0.0",
+    "underscore": "^1.13.7"
+  }
+}
